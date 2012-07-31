@@ -1,0 +1,32 @@
+<h1>ネコが大好きな人のための掲示板</h1>
+
+<%= link_to '投稿する', new_post_path %>
+
+<br />
+
+<img src="http://dddo.cocolog-nifty.com/test/tophist/a041024catWalk375.jpg"/>
+
+<% @posts.each do |post| %>
+  <p>
+    <h3><%= post.title %></h3>
+  </p>
+  <p>
+    <b>by <%= post.author %>さん</b>
+  </p>
+  <p>
+    <%= post.body %>
+  </p>
+  <p>
+    <%= post.created_at %>
+  </p>
+  <p>
+    <%= link_to 'Show', post %>
+  </p>
+  <p>
+    <%= link_to 'Edit', edit_post_path(post) %>
+  </p>
+  <p>
+    <%= link_to 'Destroy', post, confirm: 'Are you sure?', method: :delete %>
+  </p>
+<% end %>
+
